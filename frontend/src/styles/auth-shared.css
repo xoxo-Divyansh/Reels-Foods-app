@@ -1,0 +1,149 @@
+@import url('./theme.css');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background: var(--color-bg);
+   color: var(--color-text);
+   font-family: var(--font-family);
+   min-height: 100vh;
+   transition: background 0.2s, color 0.2s;
+}
+
+/* Scope centering to auth pages only so other pages (like the Home reels feed)
+   can use full-bleed layouts. Wrap auth page contents with a .auth-page div. */
+.auth-page {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   padding: 32px 12px;
+}
+
+.auth-container {
+   max-width: 300px;
+   width: 100%;
+   background: linear-gradient(135deg, var(--color-input-bg) 80%, var(--color-accent) 100%);
+   border: none;
+   border-radius: 14px;
+   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+   padding: 1rem 1.1rem 1rem 1.1rem;
+   margin: 32px auto;
+   display: block;
+   position: relative;
+   overflow: hidden;
+}
+
+
+.auth-title {
+   font-size: 1.29rem;
+   font-weight: 700;
+   text-align: center;
+   margin-bottom: 0.5rem;
+   color: var(--color-primary);
+   letter-spacing: -1px;
+   background: none;
+   text-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+}
+
+.auth-form {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 0.6rem;
+   margin-bottom: 1rem;
+}
+
+.auth-form input {
+   padding: 0.41em 0.74rem;
+   border-radius: 7px;
+   border: 1.2px solid var(--color-input-border);
+   background: rgba(255, 255, 255, 0.85);
+   color: var(--color-primary);
+   font-size: 0.95rem;
+   outline: none;
+   transition: border 0.2s, box-shadow 0.2s;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.auth-form input:focus {
+   border-color: var(--color-primary);
+   box-shadow: 0 2px 8px rgba(79, 140, 255, 0.10);
+}
+
+.auth-btn {
+   padding: 0.53rem;
+   border-radius: 7px;
+   background: linear-gradient(90deg, var(--color-primary) 70%, var(--color-accent) 100%);
+   color: var(--color-btn-text);
+   border: none;
+   font-size: 0.98rem;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background 0.2s, box-shadow 0.2s;
+   box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+}
+
+.auth-btn:hover {
+   background: linear-gradient(90deg, var(--color-accent) 60%, var(--color-primary) 100%);
+   box-shadow: 0 4px 16px rgba(255, 179, 71, 0.10);
+}
+
+/* Arrange two inputs and their labels in a single line, responsive */
+.auth-row {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.4rem;
+   align-items: end;
+}
+
+.auth-row label {
+   display: block;
+
+   font-size: 0.95rem;
+   font-weight: 500;
+}
+
+.auth-row input {
+   width: 100%;
+}
+
+@media (max-width: 600px) {
+   .auth-container {
+      max-width: 98vw;
+      padding: 0.5rem 0.2rem;
+   }
+
+   .auth-row {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+   }
+
+   .auth-title {
+      font-size: 1.03rem;
+   }
+
+   .auth-form input {
+      font-size: 0.87rem;
+      padding: 0.35em 0.54rem;
+   }
+
+   .auth-btn {
+      font-size: 0.87rem;
+      padding: 0.38rem;
+   }
+}
+
+.auth-link {
+   text-decoration: none;
+   color: #34d185;
+   padding-bottom: "4.5rem";
+}
+
+.auth-link:hover {
+   text-decoration: underline;
+   color: var(--color-accent);
+}

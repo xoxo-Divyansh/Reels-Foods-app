@@ -1,11 +1,11 @@
 /* Theme variables for light and dark mode */
 :root {
-   --color-bg: #f9f9f9;
+   --color-bg: #e7e7e7;
    --color-text: #222;
    --color-primary: #4f8cff;
-   --color-accent: #ffb347;
+   --color-accent: #cc61f7da;
    --color-border: #e0e0e0;
-   --color-input-bg: #fff;
+   --color-input-bg: #f1efef;
    --color-input-border: #ccc;
    --color-btn-bg: #4f8cff;
    --color-btn-text: #fff;
@@ -15,10 +15,10 @@
 
 @media (prefers-color-scheme: dark) {
    :root {
-      --color-bg: #181a1b;
+      --color-bg: #565a5a;
       --color-text: #f9f9f9;
       --color-primary: #4f8cff;
-      --color-accent: #ffb347;
+      --color-accent: #cc61f7da;
       --color-border: #333;
       --color-input-bg: #222;
       --color-input-border: #444;

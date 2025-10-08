@@ -92,10 +92,12 @@ function logoutUser(req, res) {
 
 // (Register) FoodPartner Controller
 async function registerFoodPartner(req, res) {
-  const { name, contactName, email, phone, password, address } = req.body;
+  
+  const { businessName, contactName, businessEmail, phoneNumber, address, password, 
+  } = req.body;
 
   const isAccountExist = await foodpartnerModel.findOne({
-    email,
+    businessEmail,
   });
 
   if (isAccountExist)
@@ -104,12 +106,12 @@ async function registerFoodPartner(req, res) {
     });
   const hashedPassword = await bcrypt.hash(password, 10);
   const foodPartner = await foodpartnerModel.create({
-    name,
-    email,
+    businessName,
+    businessEmail,
     password: hashedPassword,
-    phone,
-    contactName,
+    phoneNumber,
     address,
+    contactName,
   });
   const token = jwt.sign(
     {
@@ -123,10 +125,10 @@ async function registerFoodPartner(req, res) {
     message: "foodPartner's Account register Successfully",
     foodPartner: {
       _id: foodPartner._id,
-      email: foodPartner.email,
-      name: foodPartner.name,
+      name: foodPartner.businessName,
+      email: foodPartner.businessEmail,
       contactName: foodPartner.contactName,
-      phone: foodPartner.phone,
+      phone: foodPartner.phoneNumber,
       address: foodPartner.address,
     },
   });
@@ -134,9 +136,9 @@ async function registerFoodPartner(req, res) {
 
 // (Login) FoodPartner  Controller
 async function loginFoodPartner(req, res) {
-  const { email, password } = req.body;
+  const { businessEmail, password } = req.body;
   const foodPartner = await foodpartnerModel.findOne({
-    email,
+    businessEmail,
   });
   if (!foodPartner) {
     return res.status(400).json({
@@ -163,8 +165,8 @@ async function loginFoodPartner(req, res) {
     message: "FoodPartner Register Successfully",
     foodPartner: {
       _id: foodPartner._id,
-      email: foodPartner.email,
-      name: foodPartner.name,
+      email: foodPartner.businessEmail,
+      name: foodPartner.businessName,
     },
   });
 }

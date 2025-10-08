@@ -1,0 +1,318 @@
+/* Profile page styles (responsive) */
+@import './theme.css';
+
+:root {
+   --card-max-width: 980px;
+}
+
+.profile-root {
+   min-height: 100vh;
+   background: linear-gradient(180deg, #222 0%, #151515 100%);
+   color: #f2f2f2;
+   display: flex;
+   justify-content: center;
+   padding: 28px 16px;
+   font-family: var(--font-family);
+}
+
+.profile-card {
+   width: 100%;
+   max-width: var(--card-max-width);
+   background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+   border: 1px solid rgba(255, 255, 255, 0.06);
+   border-radius: 12px;
+   padding: 18px;
+   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+   box-sizing: border-box;
+}
+
+.profile-top {
+   display: flex;
+   gap: 16px;
+   align-items: center;
+   justify-content: flex-start;
+}
+
+.profile-avatar {
+   position: relative;
+   width: 88px;
+   height: 88px;
+   flex: 0 0 88px;   
+}
+
+.profile-avatar svg {
+   display: block
+}
+
+.avatar-label {
+   position: absolute;
+   left: 0;
+   top: 96px;
+   font-size: 11px;
+   color: rgba(255, 255, 255, 0.7);
+   text-align: center;
+   width: 100%;
+}
+
+.profile-meta {
+   flex: 1;
+   min-width: 0;
+   /* allow text truncation inside flex */
+}
+
+.business-name {
+   background: rgba(255, 255, 255, 0.04);
+   padding: 6px 10px;
+   /* reduced padding */
+   border: 1px solid rgba(255, 200, 80, 0.18);
+   /* slightly thinner border */
+   border-radius: 8px;
+   color: #f7d9a6;
+   font-weight: 700;
+   margin-bottom: 6px;
+   /* smaller gap below name */
+   white-space: nowrap;
+   overflow: hidden;
+   text-align: center;
+   text-overflow: ellipsis;
+   max-width: 260px;
+   /* cap width so it takes less space */
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.address-box {
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   /* slightly thinner */
+   padding: 6px 8px;
+   /* reduced padding */
+   border-radius: 8px;
+   color: rgba(255, 255, 255, 0.9);
+   background: rgba(255, 255, 255, 0.02);
+   text-align: center;
+   font-size: 13px;
+   max-width: 260px;
+   /* cap width */
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.stats-row {
+   display: flex;
+   justify-content: space-between;
+   gap: 12px;
+   margin: 18px 4px;
+   align-items: center;
+}
+
+.stat {
+   text-align: center;
+   flex: 1
+}
+
+.stat-value {
+   font-size: 20px;
+   font-weight: 800;
+   color: #fff
+}
+
+.stat-label {
+   font-size: 13px;
+   color: rgba(255, 255, 255, 0.75)
+}
+
+.divider {
+   height: 3px;
+   background: rgba(255, 255, 255, 0.06);
+   margin: 12px 0 14px;
+   border-radius: 2px;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* responsive columns */
+  gap: 12px;
+}
+
+.video-card {
+  position: relative;
+  width: 100%;
+  padding-top: 133%; /* 4:3 ratio (height/width = 4/3 = 133%) */
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  background: #a0a0a0;
+}
+
+.video-card video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps aspect ratio and fills container */
+  border-radius: 8px;
+}
+
+.video-thumb {
+   background: #cccacb;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: rgba(255, 255, 255, 0.9);
+   font-weight: 700;
+   font-size: 14px;
+   aspect-ratio: 3 / 4;
+   /* keeps consistent card ratio */
+}
+
+/* Large screens: increase avatar and tighten business/address spacing */
+@media (min-width: 1200px) {
+   .profile-card {
+      padding: 26px
+   }
+
+   .profile-avatar {
+      width: 140px;
+      /* made a bit larger on big screens */
+      height: 140px;
+      flex: 0 0 140px;
+   }
+
+   .business-name {
+      font-size: 16px;
+      padding: 8px 10px;
+      /* slightly increased to match larger avatar but still compact */
+      max-width: 260px;
+      /* keep it compact even on wide screens */
+   }
+
+   .address-box {
+      font-size: 13px;
+      padding: 6px 10px;
+      max-width: 260px;
+   }
+
+   .video-thumb {
+      font-size: 15px
+   }
+}
+
+/* Desktop / large tablet */
+@media (min-width: 900px) and (max-width: 1199px) {
+   .videos-grid {
+      grid-template-columns: repeat(4, 1fr)
+   }
+}
+
+/* tablet */
+@media (min-width: 640px) and (max-width: 899px) {
+   .videos-grid {
+      grid-template-columns: repeat(3, 1fr)
+   }
+
+   .profile-avatar {
+      width: 100px;
+      height: 100px;
+      flex: 0 0 100px
+   }
+}
+
+/* small tablets and large phones */
+@media (min-width: 480px) and (max-width: 639px) {
+   .videos-grid {
+      grid-template-columns: repeat(3, 1fr)
+   }
+
+   .profile-top {
+      gap: 12px
+   }
+}
+
+/* phones */
+@media (max-width: 479px) {
+   .profile-card {
+      padding: 14px
+   }
+
+   .profile-top {
+      flex-direction: row;
+      align-items: center
+   }
+
+   .profile-avatar {
+      width: 72px;
+      height: 72px;
+      flex: 0 0 72px
+   }
+
+   .business-name {
+      font-size: 15px
+   }
+
+   .videos-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px
+   }
+
+   .stat-value {
+      font-size: 18px
+   }
+}
+
+/* very small screens - stack meta under avatar */
+@media (max-width: 360px) {
+   .profile-top {
+      flex-direction: column;
+      align-items: flex-start
+   }
+
+   .profile-meta {
+      width: 100%
+   }
+
+   .business-name {
+      width: 100%;
+      white-space: normal
+   }
+}
+
+/* make interactive elements show pointer and add subtle hover/focus feedback */
+.profile-avatar,
+.business-name,
+.address-box,
+.video-card,
+.video-thumb {
+   cursor: pointer;
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   transition: transform .14s ease, box-shadow .14s ease, opacity .12s ease;
+}
+
+/* subtle lift on hover to indicate interactivity */
+.profile-avatar:hover,
+.business-name:hover,
+.address-box:hover,
+.video-card:hover,
+.video-thumb:hover {
+   transform: translateY(-4px) scale(1.02);
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* pressed state */
+.profile-avatar:active,
+.business-name:active,
+.address-box:active,
+.video-card:active,
+.video-thumb:active {
+   transform: translateY(-1px) scale(0.995);
+}
+
+/* keyboard focus for accessibility */
+.profile-avatar:focus,
+.business-name:focus,
+.address-box:focus,
+.video-card:focus,
+.video-thumb:focus {
+   outline: 2px solid var(--color-accent);
+   outline-offset: 3px;
+}

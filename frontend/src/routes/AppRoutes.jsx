@@ -1,21 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UserRegister from './UserRegister';
-import UserLogin from './UserLogin';
-import FoodPartnerRegister from './FoodPartnerRegister';
-import FoodPartnerLogin from './FoodPartnerLogin';
-
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import FoodPartnerLogin from "../pages/auth/FoodPartnerLogin";
+import FoodPartnerRegister from "../pages/auth/FoodPartnerRegister";
+import UserLogin from "../pages/auth/UserLogin";
+import UserRegister from "../pages/auth/UserRegister";
+import CreateFood from "../pages/food-partner/CreateFood";
+import Profile from "../pages/food-partner/profile";
+import Home from "../pages/general/home";
 const AppRoute = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/user/register' element={<UserRegister />} />
-        <Route path='/user/login' element={<UserLogin />} />
-        <Route path='/food-partner/register' element={<FoodPartnerRegister />} />
-        <Route path='/food-partner/login' element={<FoodPartnerLogin />} />
-        {/* Do not match '/' for 404 */}
-        <Route path='/' element={<UserLogin />} />
-        <Route path='*' element={<h1>404 - Page Not Found</h1>} />
+         {/* <Route path="/register" element={<ChooseRegister />} /> */}
+        <Route path="/user/register" element={<UserRegister />} />
+        <Route path="/user/login" element={<UserLogin />} />
+        <Route path="/food-partner/register" element={<FoodPartnerRegister />}/>
+        <Route path="/food-partner/login" element={<FoodPartnerLogin />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/create-food" element={<CreateFood />} />
+        <Route path="/food-partner/:id" element={<Profile />} />
       </Routes>
     </Router>
   );

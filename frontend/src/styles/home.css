@@ -1,0 +1,155 @@
+/* home.css
+   Fullscreen reels / tiktok-like scroll with CSS scroll-snap and overlay
+*/
+
+:root {
+   --bg: #000;
+   --muted: rgba(255, 255, 255, 0.9);
+   --accent: #cf360f;
+}
+
+html,
+body,
+#root {
+   height: 100%;
+   width: 100%;
+   margin: 0;
+}
+
+/* The reels layout uses its own scrolling container; don't force global body overflow.
+   When the reels page is active we add `reels-locked` to the body to prevent
+   the page from scrolling underneath. */
+body.reels-locked {
+   overflow: hidden;
+}
+
+.reels-root {
+   background: var(--bg);
+   height: 100vh;
+   width: 100vw;
+   overflow: hidden;
+   position: relative;
+}
+
+.reels-container {
+   height: 100vh;
+   width: 100%;
+   overflow-y: auto;
+   scroll-snap-type: y mandatory;
+   /* -webkit-overflow-scrolling: touch */
+}
+
+.reel {
+   position: relative;
+   height: 100vh;
+   /* keep full viewport snap */
+   width: 100%;
+   scroll-snap-align: start;
+   background: #000;
+   overflow: hidden;
+   /* clip the absolutely positioned video */
+   display: block;
+}
+
+/* absolutely fill the reel with the video and cover the area */
+.reel-video {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   /* cover prevents letterbox gaps and keeps video centered */
+   background: #000;
+   display: block;
+   margin: 0;
+}
+
+/* reduce vertical padding of overlay so description + buttons fit on smaller heights */
+.reel-overlay {
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   padding: 12px 12px;
+   /* tightened up */
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+   pointer-events: auto;
+   /* enable interaction for children */
+   z-index: 20;
+}
+
+/* limit meta width to avoid overlap and cropping */
+.reel-meta {
+   max-width: calc(100% - 90px);
+   /* reserve space for right-side controls */
+   color: #fff;
+   margin-bottom: 8px;/* visit-btn */
+   pointer-events: auto;
+   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.reel-desc {
+   color: #f1f1f1;
+   margin: 0 0 8px 2px;
+   font-size: 0.98rem;
+   line-height: 1.25;
+   font-weight: 700;
+   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.visit-btn {
+   display: inline-block;
+   background: var(--accent);
+   color: #f2f2f2;   
+   padding: 7px 10px;
+   border-radius: 8px;
+   text-decoration: none;
+   font-weight: 700;
+   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+   z-index: 25;
+   pointer-events: auto;
+}
+
+/* Right-side vertical controls placeholder (like TikTok icons) */
+.reel-controls {
+   width: 64px;
+   display: flex;
+   flex-direction: column;
+   gap: 14px;
+   align-items: center;
+   pointer-events: auto;
+}
+
+@media (max-width: 640px) {
+   .reel-overlay {
+      padding: 10px;
+   }
+
+   .reel-meta {
+      max-width: 68%;
+   }
+
+   .reel-desc {
+      font-size: 0.9rem;
+   }
+
+   .reel-controls {
+      width: 56px;
+      gap: 12px;
+   }
+}
+
+@media (min-width: 1024px) {
+   .reel-meta {
+      max-width: 55%;
+   }
+
+   .reel-desc {
+      font-size: 1.05rem;
+   }
+}

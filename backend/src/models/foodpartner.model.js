@@ -24,11 +24,6 @@ const foodpartnerSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
-    businessAddress: {
-      type: String,
-      required: true,
-      trim: true,
-    },
     address: {
       type: String,
       required: true,
