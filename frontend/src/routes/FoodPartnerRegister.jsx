@@ -22,12 +22,8 @@ export default function FoodPartnerRegister() {
         />
 
         <div className="auth-row">
-          <label htmlFor="contactName" style={{ width: "100%" }}>
-            Contact Name
-          </label>
-          <label htmlFor="phone" style={{ width: "100%" }}>
-            Phone Number
-          </label>
+          <label htmlFor="contactName">Contact Name</label>
+          <label htmlFor="phone">Phone Number</label>
           <input
             id="contactName"
             type="text"
@@ -59,6 +55,15 @@ export default function FoodPartnerRegister() {
           type="text"
           placeholder="Business Address"
           name="address"
+        />
+
+        <label htmlFor="address">Address</label>
+        <input
+          id="address"
+          type="text"
+          placeholder="Address"
+          name="address"
+          required
         />
 
         <label htmlFor="password">Password</label>

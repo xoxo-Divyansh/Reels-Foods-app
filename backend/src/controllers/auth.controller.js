@@ -83,7 +83,6 @@ async function loginUser(req, res) {
 }
 
 // (Logout) User Controller
-
 function logoutUser(req, res) {
   res.clearCookie("token");
   res.status(200).json({

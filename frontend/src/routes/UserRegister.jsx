@@ -12,9 +12,25 @@ export default function UserRegister() {
         Switch to Food Partner
       </a>
       <form className="auth-form">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
+        <label htmlFor="register-name">Full Name</label>
+        <input
+          id="register-name"
+          type="text"
+          placeholder="Full Name"
+          required
+        />
+
+        <label htmlFor="register-email">Email</label>
+        <input id="register-email" type="email" placeholder="Email" required />
+
+        <label htmlFor="register-password">Password</label>
+        <input
+          id="register-password"
+          type="password"
+          placeholder="Password"
+          required
+        />
+
         <button className="auth-btn" type="submit">
           Register
         </button>
