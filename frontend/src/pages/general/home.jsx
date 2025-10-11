@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import BottomNav from "../../components/BottomNav";
 import "../../styles/home.css";
+import toast, { Toaster } from "react-hot-toast";
+
 
 const Home = () => {
   const [videos, setVideos] = useState([]);
@@ -32,9 +34,9 @@ const Home = () => {
         const initialCounts = {};
         items.forEach((item) => {
           initialCounts[item._id] = {
-            likes: Math.floor(Math.random() * 50),
-            comments: Math.floor(Math.random() * 10),
-            shares: Math.floor(Math.random() * 5),
+            likes: Math.floor(Math.random()),
+            comments: Math.floor(Math.random()),
+            shares: Math.floor(Math.random()),
           };
         });
         setCounts(initialCounts);
@@ -104,17 +106,25 @@ const Home = () => {
     };
   }, [videos]);
 
-  // Handle Like toggle + counter update
-  const toggleLike = (id) => {
-    setLikes((prev) => ({ ...prev, [id]: !prev[id] }));
-    setCounts((prev) => ({
-      ...prev,
-      [id]: {
-        ...prev[id],
-        likes: prev[id].likes + (likes[id] ? -1 : 1),
-      },
-    }));
-  };
+// Handle Like toggle + counter update
+const toggleLike = (id) => {
+  setLikes((prev) => {
+    const isLiked = !prev[id]; // new like state
+    // Show toast depending on action
+    if (isLiked) toast("You liked this video ❤️");
+    else toast("You unliked this video 💔");
+
+    return { ...prev, [id]: isLiked };
+  });
+
+  setCounts((prev) => ({
+    ...prev,
+    [id]: {
+      ...prev[id],
+      likes: prev[id].likes + (likes[id] ? -1 : 1),
+    },
+  }));
+};
 
   // Dummy comment handler (for future modal)
   const handleComment = (id) => {
@@ -125,7 +135,7 @@ const Home = () => {
         comments: prev[id].comments + 1,
       },
     }));
-    alert("Comment feature coming soon 😄");
+    toast("Comment feature coming soon 😄");
   };
 
   // Share handler
@@ -138,7 +148,7 @@ const Home = () => {
         shares: prev[id].shares + 1,
       },
     }));
-    alert("Link copied! 🔗");
+     toast.success("Link copied! 🔗");
   };
 
   // Save toggle
@@ -153,10 +163,10 @@ const Home = () => {
       console.log("Saved video:", res.data);
 
       setSaves((prev) => ({ ...prev, [id]: !prev[id] }));
-      alert("Video saved!");
+      toast.success ("Video saved!");
     } catch (err) {
       console.error("Error saving video:", err.response?.data || err.message);
-      alert("Failed to save video");
+      toast.error("Failed to save video");
     }
   };
 
@@ -358,6 +368,9 @@ const Home = () => {
 
       {/* Bottom Navigation */}
       <BottomNav />
+      
+         {/* Toast container */}
+      <Toaster position="bottom-center" reverseOrder={false} />
     </div>
   );
 };
