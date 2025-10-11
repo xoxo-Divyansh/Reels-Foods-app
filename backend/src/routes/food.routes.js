@@ -8,26 +8,43 @@ const upload = multer({
   storage: multer.memoryStorage(),
 });
 
-// POST /api/food/ - [protected]
+// POST /api/food/ - [protected] //create food
 router.post(
   "/",
   authMiddleware.authFoodPartnerMiddleware,
   upload.single("video"),
-  foodController.createFood);
+  foodController.createFood
+);
 
-// GET /api/food - [protected]
+// GET /api/food - [protected]  //get all food items
 router.get("/",
    authMiddleware.authUserMiddleware,
     foodController.getFoodItems);
 
-//POST Like food
-router.post("/like", 
+//POST Like food - [protected] //like and unlike food
+router.post(
+  "/like",
   authMiddleware.authUserMiddleware,
-  foodController.likefood);
+  foodController.likefood
+);
 
-//POST save food
-  router.post("/save",
-    authMiddleware.authUserMiddleware,
-    foodController.savedFood);
+//POST save food - [protected] //save and unsave food
+router.post(
+  "/save",
+  authMiddleware.authUserMiddleware,
+  foodController.savedFood
+);
+
+router.post("/save/:foodId",
+   authMiddleware.authUserMiddleware,
+   foodController.savedFoodVideos);
+
+// GET /api/food/saved - [protected] //get all saved food items for a user
+router.get(
+  "/saved",
+  authMiddleware.authUserMiddleware,
+  foodController.getSavedFood
+);
+
 
 module.exports = router;

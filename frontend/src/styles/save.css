@@ -1,0 +1,113 @@
+/* save.css — Reels-style Saved Videos Page */
+
+:root {
+  --bg: #000;
+  --accent: #ffd700;
+  --muted: rgba(255, 255, 255, 0.85);
+}
+
+/* Root container */
+.saved-root {
+  background: var(--bg);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Scrollable container */
+.saved-container {
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.saved-reel {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Video style (same responsive fix as Home.jsx) */
+.saved-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+@media (min-width: 768px) {
+  .saved-video {
+    object-fit: contain;
+  }
+}
+
+/* Overlay bottom description */
+.saved-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px;
+  color: #fff;
+  z-index: 20;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.saved-desc {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.saved-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #111;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Centered Save icon */
+.saved-actions {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  z-index: 25;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.action-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.saved svg path {
+  fill: #ffd700;
+}

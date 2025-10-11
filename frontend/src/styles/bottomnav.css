@@ -1,0 +1,62 @@
+/* bottomnav.css — Glassmorphism Bottom Navigation */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 12px; /* slight gap from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px); /* margin from sides */
+  max-width: 450px;
+  height: 65px;
+  background: rgba(255, 255, 255, 0.08); /* semi-transparent */
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  backdrop-filter: blur(15px) saturate(180%);
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.nav-btn:hover {
+  color: #fff;
+}
+
+.nav-btn.active {
+  color: #a855f7; /* purple accent */
+}
+
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 4px;
+  transition: transform 0.25s ease;
+}
+
+.nav-btn:hover .nav-icon,
+.nav-btn.active .nav-icon {
+  transform: scale(1.2);
+}
+
+@media (min-width: 768px) {
+   .bottom-nav {
+    width: 350px; /* narrower nav */
+    height: 60px;
+    bottom: 20px;
+   }
+}
