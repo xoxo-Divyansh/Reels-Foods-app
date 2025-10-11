@@ -8,16 +8,26 @@ const upload = multer({
   storage: multer.memoryStorage(),
 });
 
-// POST /api/food/ [protected]
+// POST /api/food/ - [protected]
 router.post(
   "/",
   authMiddleware.authFoodPartnerMiddleware,
   upload.single("video"),
-  foodController.createFood
-);
+  foodController.createFood);
 
-// GET /api/food -
-router.get("/", authMiddleware.authUserMiddleware, foodController.getFoodItems);
+// GET /api/food - [protected]
+router.get("/",
+   authMiddleware.authUserMiddleware,
+    foodController.getFoodItems);
 
+//POST Like food
+router.post("/like", 
+  authMiddleware.authUserMiddleware,
+  foodController.likefood);
+
+//POST save food
+  router.post("/save",
+    authMiddleware.authUserMiddleware,
+    foodController.savedFood);
 
 module.exports = router;

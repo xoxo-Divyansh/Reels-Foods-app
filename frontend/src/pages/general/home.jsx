@@ -45,11 +45,7 @@ const Home = () => {
       try {
         // ensure muted to allow autoplay
         video.muted = true;
-        const p = video.play();
-        if (p && typeof p.then === "function") {
-          await p;
-        }
-        // clear any fallback marker if play succeeds
+        await video.play();
         const reel = video.closest(".reel");
         if (reel) reel.removeAttribute("data-needs-play");
       } catch (err) {

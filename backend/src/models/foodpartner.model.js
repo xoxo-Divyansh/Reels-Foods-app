@@ -24,6 +24,7 @@ const foodpartnerSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    
     address: {
       type: String,
       required: true,

@@ -1,24 +1,29 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const foodSchema = new mongoose.Schema({
   name: {
     type: String,
-      required: true,
+    required: true,
   },
   video: {
-      type: String,
+    type: String,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   foodPartner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'FoodPartner',
+    ref: "FoodPartner",
     required: true,
+  },
+
+  likeCount: {
+    type: Number,
+    default: 0,
   },
 });
 
-const foodModel = mongoose.model('Food', foodSchema);
+const foodModel = mongoose.model("Food", foodSchema);
 
 module.exports = foodModel;
