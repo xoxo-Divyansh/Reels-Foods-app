@@ -21,7 +21,7 @@ The platform features:
 ---
 
 ## 🌐 Tech Stack
-
+```
 | Category | Technology |
 |-----------|-------------|
 | **Frontend** | React.js, CSS3, React Router DOM |
@@ -29,11 +29,11 @@ The platform features:
 | **Database** | MongoDB (Mongoose) |
 | **Authentication** | JWT (JSON Web Token), Cookies |
 | **Other Tools** | Axios, React Hot Toast, Multer, Cloudinary |
-
+```
 ---
 
 ## 🗺️ Project Structure
-
+```
 Reels-Foods-App/
 │
 ├── backend/
@@ -52,12 +52,8 @@ Reels-Foods-App/
 │ └── public/
 │
 └── package.json
-
-markdown
-Copy code
-
+```
 ---
-
 ## ⚙️ How It Works
 
 ### 🔑 Authentication Flow
