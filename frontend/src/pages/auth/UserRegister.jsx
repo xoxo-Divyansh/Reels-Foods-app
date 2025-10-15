@@ -29,7 +29,7 @@ const UserRegister = () => {
 
       console.log("Registration successful:", response.data);
 
-      navigate("/");
+      navigate("/home");
       
       // Optionally handle success (e.g., redirect or show message)
     } catch (error) {

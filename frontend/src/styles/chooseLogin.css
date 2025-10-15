@@ -1,0 +1,98 @@
+
+.choose-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e1b2e, #2c1f4a);
+  font-family: var(--font-family, "Poppins", sans-serif);
+} 
+
+.choose-login-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.choose-login-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #f1f1f1;
+}
+
+.login-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-option {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.login-icon {
+  width: 50px;
+  height: 50px;
+  color: #b17fff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.login-option h2 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.login-option p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.login-option:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #b17fff;
+}
+
+.login-option.user:hover .login-icon {
+  color: #8be0ff;
+  transform: scale(1.1);
+}
+
+.login-option.partner:hover .login-icon {
+  color: #8be0ff;
+  transform: scale(1.1);
+}
+
+@media (min-width: 640px) {
+  .login-options {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .login-option {
+    flex: 1;
+  }
+}

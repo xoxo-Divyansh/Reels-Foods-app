@@ -4,7 +4,6 @@ import "../../styles/auth-shared.css";
 axios.defaults.withCredentials = true;
 
 const FoodPartnerRegister = () => {
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -34,7 +33,6 @@ const FoodPartnerRegister = () => {
       console.log("Registration successful:", response.data);
 
       navigate("/create-food");
-      
     } catch (error) {
       console.error("There was an errror in Registration!", error);
     }
@@ -63,15 +61,15 @@ const FoodPartnerRegister = () => {
 
           <div className="auth-row">
             <label htmlFor="contactName">Contact Name</label>
-            <label htmlFor="phone">Phone Number</label>
             <input
               id="contactName"
               type="text"
               placeholder="Contact Name"
               name="contact"
               required
-              style={{ marginRight: "1rem" }}
             />
+
+            <label htmlFor="phone">Phone Number</label>
             <input
               id="phone"
               type="tel"
@@ -79,7 +77,7 @@ const FoodPartnerRegister = () => {
               name="phone"
             />
           </div>
-
+          <br />
           <label htmlFor="email">Business Email</label>
           <input
             id="email"

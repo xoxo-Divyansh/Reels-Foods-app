@@ -38,7 +38,7 @@ const CreateFood = () => {
         withCredentials: true,
       });
 
-      navigate("/");
+      navigate("/home");
 
       alert("Food item uploaded successfully!");
       setName("");
@@ -107,7 +107,7 @@ const CreateFood = () => {
                 preload="metadata"
                 className="video-frame"
               />
-              <track kind="captions" src="captions.vtt" srclang="en" label="English" />
+              <track kind="captions" src="captions.vtt" lang="en" label="English" />
             </div>
           )}
 

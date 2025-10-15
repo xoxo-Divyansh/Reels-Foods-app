@@ -10,8 +10,8 @@ const BottomNav = () => {
     <div className="bottom-nav">
       {/* Home Icon */}
       <button
-        className={`nav-btn ${location.pathname === "/" ? "active" : ""}`}
-        onClick={() => navigate("/")}
+        className={`nav-btn ${location.pathname === "/home" ? "active" : ""}`}
+        onClick={() => navigate("/home")}
       >
         <svg  
           xmlns="http://www.w3.org/2000/svg"

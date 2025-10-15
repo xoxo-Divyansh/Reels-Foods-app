@@ -29,6 +29,33 @@ body.reels-locked {
    position: relative;
 }
 
+/* Logout Button Styles */
+.logout-section {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.logout-btn {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #a855f7; /* Purple hover border to match your xoxo theme */
+  color: #a855f7;
+}
+
+
 .reels-container {
    height: 100vh;
    width: 100%;

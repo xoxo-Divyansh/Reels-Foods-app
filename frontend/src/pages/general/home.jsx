@@ -1,9 +1,11 @@
+import  React, { useEffect, useRef, useState } from "react";
+import { Link, useNavigate  } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+
 import BottomNav from "../../components/BottomNav";
 import "../../styles/home.css";
-import toast, { Toaster } from "react-hot-toast";
+
 
 
 const Home = () => {
@@ -11,7 +13,10 @@ const Home = () => {
   const [likes, setLikes] = useState({});
   const [saves, setSaves] = useState({});
   const [counts, setCounts] = useState({}); // 🧩 For Like, Comment, Share counts
+
   const videoRefs = useRef(new Map());
+
+  const navigate = useNavigate();
 
   const containerRef = useRef(null);
   // Lock body scroll while reels active
@@ -126,6 +131,21 @@ const toggleLike = (id) => {
   }));
 };
 
+
+const handleLogout = async () => {
+  try {
+    // Call your backend logout API (adjust path if needed)
+    await axios.post("http://localhost:3000/api/user/logout", {}, { withCredentials: true });
+
+    toast.success("Logged out successfully 👋");
+    // redirect user to login or choose-login page
+    navigate("/user/logout"); 
+  } catch (err) {
+    console.error("Logout failed:", err.message);
+    toast.error("Failed to logout");
+  }
+};
+
   // Dummy comment handler (for future modal)
   const handleComment = (id) => {
     setCounts((prev) => ({
@@ -177,6 +197,12 @@ const toggleLike = (id) => {
 
   return (
     <div className="reels-root">
+      <div className="logout-section">
+  <button className="logout-btn" onClick={handleLogout}>
+    Logout
+  </button>
+</div>
+
       <div className="reels-container" ref={containerRef}>
         {videos.length > 0 ? (
           videos.map((item) => (
