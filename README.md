@@ -118,6 +118,61 @@ The app is designed **mobile-first**, optimized for smooth scrolling and touch-f
 
 ---
 
+🌟 Feature Videos Showcase
+<table>
+  <tr>
+    <th>Feature Video</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>
+      <video width="300" controls>
+        <source src="./assets/chooseLogin-page.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </td>
+    <td>Demonstrates the user choosing login/register options.</td>
+  </tr>
+  <tr>
+    <td>
+      <video width="300" controls>
+        <source src="./assets/createFood-page.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </td>
+    <td>Food partner creates a new food reel/video.</td>
+  </tr>
+  <tr>
+    <td>
+      <video width="300" controls>
+        <source src="./assets/home-page.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </td>
+    <td>Shows liking, saving, sharing, and commenting on food reels.</td>
+  </tr>
+  <tr>
+    <td>
+      <video width="300" controls>
+        <source src="./assets/saved-page.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </td>
+    <td>Users view their saved food videos.</td>
+  </tr>
+  <tr>
+    <td>
+      <video width="300" controls>
+        <source src="./assets/user-loginflow.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </td>
+    <td>Full login flow for users and navigation across pages.</td>
+  </tr>
+</table>
+
+---
+
 ## 🧩 Additional Features
 
 - 🌈 **Responsive Design:** Works seamlessly across all screen sizes  
